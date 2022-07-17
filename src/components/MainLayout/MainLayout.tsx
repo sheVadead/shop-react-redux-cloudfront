@@ -5,6 +5,9 @@ import Link from '@material-ui/core/Link';
 import Container from "@material-ui/core/Container";
 import Header from "components/MainLayout/components/Header";
 
+type MainLayoutProps = {
+  children: React.ReactNode;
+};
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -28,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const MainLayout: React.FC = ({children}) => {
+const MainLayout: React.FC<MainLayoutProps> = (props: MainLayoutProps) => {
   const classes = useStyles();
 
   return (
@@ -36,12 +39,12 @@ const MainLayout: React.FC = ({children}) => {
       <Header/>
       <main>
         <Container className={classes.container} maxWidth="md">
-          {children!}
+          {props.children!}
         </Container>
       </main>
       <footer className={classes.footer}>
         <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-          Thank you for your purchase!
+          Dzmitry Shauchonak, NodeJS in AWS
         </Typography>
         <Copyright/>
       </footer>

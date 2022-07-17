@@ -2,6 +2,10 @@ import React from 'react';
 import {makeStyles} from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 
+type PageCartProps = {
+  children: React.ReactNode;
+};
+
 const useStyles = makeStyles((theme) => ({
   layout: {
     width: 'auto',
@@ -25,13 +29,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const PaperLayout:React.FC = ({children}) =>  {
+const PaperLayout:React.FC<PageCartProps> = (props: PageCartProps) =>  {
   const classes = useStyles();
 
   return (
     <div className={classes.layout}>
       <Paper className={classes.paper}>
-        {children}
+        {props.children}
       </Paper>
     </div>
   );

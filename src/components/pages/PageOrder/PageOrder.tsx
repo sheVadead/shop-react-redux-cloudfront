@@ -21,6 +21,10 @@ import TableCell from "@material-ui/core/TableCell";
 import TableBody from "@material-ui/core/TableBody";
 import TableContainer from "@material-ui/core/TableContainer";
 
+interface IProps extends FormikProps<FormikValues> {
+  // onSubmit(e:React.FormEvent<HTMLInputElement>):void
+}
+
 const Form = (props: FormikProps<FormikValues>) => {
   const {
     values,
@@ -156,7 +160,7 @@ export default function PageOrder() {
         enableReinitialize
         onSubmit={onChangeStatus}
       >
-        {(props: FormikProps<FormikValues>) => <Form {...props} />}
+        {(props: IProps) => <Form {...props} />}
       </Formik>
       <Typography variant="h6">
         Status history:
