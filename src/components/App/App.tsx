@@ -12,7 +12,8 @@ import PageCart from "components/pages/PageCart/PageCart";
 import PageOrders from "components/pages/PageOrders/PageOrders";
 import PageOrder from "components/pages/PageOrder/PageOrder";
 import PageProductImport from "components/pages/admin/PageProductImport/PageProductImport";
-
+import SwaggerUI from "swagger-ui-react"
+import "swagger-ui-react/swagger-ui.css"
 function App() {
 
   return (
@@ -22,6 +23,9 @@ function App() {
           <MainLayout>
             <Route exact path="/">
               <PageProducts/>
+            </Route>
+            <Route exact path="/swagger">
+              <SwaggerUI url="https://swagger-sheva-aws-nodejs.s3.eu-central-1.amazonaws.com/shevaTeam-LemonadeAPI-1.0.0-resolved.json" />
             </Route>
             <Route exact path={["/admin/product-form/:id", '/admin/product-form']}>
               <PageProductForm/>
