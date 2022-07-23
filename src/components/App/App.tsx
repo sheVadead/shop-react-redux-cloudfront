@@ -25,7 +25,7 @@ function App() {
               <PageProducts/>
             </Route>
             <Route exact path="/swagger">
-              <SwaggerUI url="https://swagger-sheva-aws-nodejs.s3.eu-central-1.amazonaws.com/shevaTeam-LemonadeAPI-1.0.0-resolved.json" />
+              <SwaggerUI url="/swagger.json"/>
             </Route>
             <Route exact path={["/admin/product-form/:id", '/admin/product-form']}>
               <PageProductForm/>

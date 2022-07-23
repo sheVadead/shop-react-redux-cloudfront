@@ -6,7 +6,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "client:deploy": "sls client deploy",
-    "client:deploy:nc": "sls client deploy --no-confirm",
+    "client:deploy:nc": "sls client deploy --aws-profile sheva_admin --no-config-change --no-policy-change --no-cors-change --no-confirm",
     "client:build:deploy": "npm run build && npm run client:deploy:nc",
     "client:build:deploy:nc": "npm run build && npm run client:deploy:nc",
     "cloudfront:setup": "sls deploy",
