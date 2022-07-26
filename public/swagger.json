@@ -48,6 +48,9 @@
           },
           "400": {
             "description": "Invalid input"
+          },
+          "500": {
+            "description": "Internal error"
           }
         }
       },
@@ -85,6 +88,9 @@
           },
           "409": {
             "description": "Duplicate product name"
+          },
+          "500": {
+            "description": "Internal error"
           }
         }
       }
@@ -130,7 +136,10 @@
             "description": "Invalid ID supplied"
           },
           "404": {
-            "description": "Pet not found"
+            "description": "Product not found"
+          },
+          "500": {
+            "description": "Internal error"
           }
         }
       }

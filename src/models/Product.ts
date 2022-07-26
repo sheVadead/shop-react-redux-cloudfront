@@ -11,6 +11,9 @@ export type Stock = {
   count: number;
   product_id: string;
 }
+
+export type FullProduct = Product & Stock;
+
 export const ProductSchema = Yup.object().shape({
   title: Yup.string().required(),
   description: Yup.string(),
