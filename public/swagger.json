@@ -216,7 +216,7 @@
     },
     "requestBodies": {
       "Product": {
-        "description": "Pet object that needs to be added to the store",
+        "description": "Product object that needs to be added to the store",
         "content": {
           "application/json": {
             "schema": {
