@@ -30,9 +30,7 @@
   "paths": {
     "/products": {
       "get": {
-        "tags": [
-          "Products"
-        ],
+        "tags": ["Products"],
         "summary": "Get all products",
         "operationId": "getProductList",
         "responses": {
@@ -55,9 +53,7 @@
         }
       },
       "post": {
-        "tags": [
-          "Products"
-        ],
+        "tags": ["Products"],
         "summary": "Create new product",
         "operationId": "createProduct",
         "requestBody": {
@@ -97,17 +93,15 @@
     },
     "/products/{productName}": {
       "get": {
-        "tags": [
-          "Products"
-        ],
+        "tags": ["Products"],
         "summary": "Find product by ID",
         "description": "Returns a single product",
         "operationId": "getProductById",
         "parameters": [
           {
-            "name": "productName",
+            "name": "id",
             "in": "path",
-            "description": "Name of product to return",
+            "description": "Id of product to return",
             "required": true,
             "style": "simple",
             "explode": false,
@@ -148,9 +142,7 @@
   "components": {
     "schemas": {
       "Product": {
-        "required": [
-          "photo_id"
-        ],
+        "required": ["title", "count", "price"],
         "type": "object",
         "properties": {
           "count": {
