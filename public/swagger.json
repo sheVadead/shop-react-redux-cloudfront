@@ -14,10 +14,6 @@
   },
   "servers": [
     {
-      "url": "https://1bayz4m1hc.execute-api.eu-central-1.amazonaws.com/dev",
-      "description": "public API"
-    },
-    {
       "url": "https://1bayz4m1hc.execute-api.eu-central-1.amazonaws.com/dev"
     }
   ],
@@ -25,6 +21,10 @@
     {
       "name": "Products",
       "description": "Products endpoints"
+    },
+    {
+      "name": "Import",
+      "description": "Import endpoints(for upload, parse and etc.)"
     }
   ],
   "paths": {
@@ -77,7 +77,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
+                  "type": "string",
                   "example": "Product with id - XXXXXXXXXX successfully created"
                 }
               }
@@ -141,8 +141,60 @@
           "500": {
             "description": "Internal error"
           }
-        }
+        },
+        "servers": [
+          {
+            "url": "https://jvt21vcmc3.execute-api.eu-central-1.amazonaws.com/dev",
+            "description": "Import host"
+          }
+        ]
       }
+    },
+    "/import": {
+      "get": {
+        "tags": [
+          "Import"
+        ],
+        "summary": "Get signed url for file upload",
+        "operationId": "importProductsList",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "Name of product to return",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/text": {
+                "schema": {
+                  "type": "string",
+                  "example": "URL"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input"
+          },
+          "500": {
+            "description": "Internal error"
+          }
+        }
+      },
+      "servers": [
+        {
+          "url": "https://jvt21vcmc3.execute-api.eu-central-1.amazonaws.com/dev"
+        }
+      ]
     }
   },
   "components": {
