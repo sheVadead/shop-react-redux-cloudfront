@@ -30,9 +30,7 @@
   "paths": {
     "/products": {
       "get": {
-        "tags": [
-          "Products"
-        ],
+        "tags": ["Products"],
         "summary": "Get all products",
         "operationId": "getProductList",
         "responses": {
@@ -55,9 +53,7 @@
         }
       },
       "post": {
-        "tags": [
-          "Products"
-        ],
+        "tags": ["Products"],
         "summary": "Create new product",
         "operationId": "createProduct",
         "requestBody": {
@@ -95,7 +91,7 @@
         }
       }
     },
-    "/products/{productName}": {
+    "/products/{id}": {
       "get": {
         "tags": [
           "Products"
@@ -105,20 +101,21 @@
         "operationId": "getProductById",
         "parameters": [
           {
-            "name": "productName",
+            "name": "id",
             "in": "path",
-            "description": "Name of product to return",
+            "description": "ID of product to return",
             "required": true,
             "style": "simple",
             "explode": false,
             "schema": {
-              "type": "string"
+              "type": "integer",
+              "format": "int64"
             }
           }
         ],
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
@@ -200,9 +197,7 @@
   "components": {
     "schemas": {
       "Product": {
-        "required": [
-          "photo_id"
-        ],
+        "required": ["title", "count", "price"],
         "type": "object",
         "properties": {
           "count": {
@@ -271,6 +266,11 @@
         "description": "Product object that needs to be added to the store",
         "content": {
           "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Product"
+            }
+          },
+          "application/xml": {
             "schema": {
               "$ref": "#/components/schemas/Product"
             }

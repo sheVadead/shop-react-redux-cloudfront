@@ -115,6 +115,8 @@ export default function PageProductForm() {
     } else {
       await axios.post(`${API_PATHS.products}`, productToSave)
     }
+
+    await history.push('/admin/products')
   };
 
   useEffect(() => {
