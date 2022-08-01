@@ -91,9 +91,11 @@
         }
       }
     },
-    "/products/{productName}": {
+    "/products/{id}": {
       "get": {
-        "tags": ["Products"],
+        "tags": [
+          "Products"
+        ],
         "summary": "Find product by ID",
         "description": "Returns a single product",
         "operationId": "getProductById",
@@ -101,18 +103,19 @@
           {
             "name": "id",
             "in": "path",
-            "description": "Id of product to return",
+            "description": "ID of product to return",
             "required": true,
             "style": "simple",
             "explode": false,
             "schema": {
-              "type": "string"
+              "type": "integer",
+              "format": "int64"
             }
           }
         ],
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "successful operation",
             "content": {
               "application/json": {
                 "schema": {
@@ -211,6 +214,11 @@
         "description": "Product object that needs to be added to the store",
         "content": {
           "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Product"
+            }
+          },
+          "application/xml": {
             "schema": {
               "$ref": "#/components/schemas/Product"
             }
