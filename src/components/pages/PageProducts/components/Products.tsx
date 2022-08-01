@@ -6,7 +6,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import {makeStyles} from '@material-ui/core/styles';
-import {Product} from "models/Product";
+import {FullProduct} from "models/Product";
 import {formatAsPrice} from "utils/utils";
 import AddProductToCart from "components/AddProductToCart/AddProductToCart";
 import axios from 'axios';
@@ -34,10 +34,10 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Products() {
   const classes = useStyles();
-  const [products, setProducts] = useState<Product[]>([]);
+  const [products, setProducts] = useState<(FullProduct)[]>([]);
   const getProducts = async () => { 
-    const {data} = await axios.get(`${API_PATHS.products}`);
-    // const sprite = await axios.get(`${API_PATHS.productsById}/1`);
+    const {data}  = await axios.get(`${API_PATHS.products}`);
+    // const sprite = await axios.get(`${API_PATHS.productsById}/Sprite`);
     setProducts(data)
 
  }
@@ -47,12 +47,12 @@ export default function Products() {
 
   return (
     <Grid container spacing={4}>
-      {products.map((product: Product, index: number) => (
+      {products.map((product: (FullProduct), index: number) => (
         <Grid item key={product.id} xs={12} sm={6} md={4}>
           <Card className={classes.card}>
             <CardMedia
               className={classes.cardMedia}
-              image={`https://images.unsplash.com/${product.photoId}`}
+              image={`https://images.unsplash.com/${product.photo_id}`}
               title="Image title"
             />
             <CardContent className={classes.cardContent}>

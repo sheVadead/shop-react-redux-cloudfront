@@ -25,7 +25,7 @@ function App() {
               <PageProducts/>
             </Route>
             <Route exact path="/swagger">
-              <SwaggerUI url="/swagger.json" />
+              <SwaggerUI url="/swagger.json"/>
             </Route>
             <Route exact path={["/admin/product-form/:id", '/admin/product-form']}>
               <PageProductForm/>
