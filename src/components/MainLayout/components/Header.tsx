@@ -48,7 +48,9 @@ export default function Header() {
         <Typography variant="h6" className={classes.title}>
           <Link className={classes.homeLink} to="/">Lemonade store</Link>
         </Typography>
-
+        <Typography variant="h6" className={classes.title}>
+          <Link className={classes.homeLink} to="/swagger">SWAGGER</Link>
+        </Typography>
         {auth && (
           <div>
             <IconButton

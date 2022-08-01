@@ -9,9 +9,10 @@ import {makeStyles} from '@material-ui/core/styles';
 import {Product} from "models/Product";
 import {formatAsPrice} from "utils/utils";
 import AddProductToCart from "components/AddProductToCart/AddProductToCart";
-// import axios from 'axios';
-// import API_PATHS from "constants/apiPaths";
-import productList from "./productList.json";
+import axios from 'axios';
+import API_PATHS from "constants/apiPaths";
+
+
 
 const useStyles = makeStyles((theme) => ({
   card: {
@@ -34,11 +35,14 @@ const useStyles = makeStyles((theme) => ({
 export default function Products() {
   const classes = useStyles();
   const [products, setProducts] = useState<Product[]>([]);
+  const getProducts = async () => { 
+    const {data} = await axios.get(`${API_PATHS.products}`);
+    // const sprite = await axios.get(`${API_PATHS.productsById}/1`);
+    setProducts(data)
 
+ }
   useEffect(() => {
-    // axios.get(`${API_PATHS.bff}/product/available/`)
-    //   .then(res => setProducts(res.data));
-    setProducts(productList);
+    getProducts()
   }, [])
 
   return (
@@ -48,7 +52,7 @@ export default function Products() {
           <Card className={classes.card}>
             <CardMedia
               className={classes.cardMedia}
-              image={`https://images.unsplash.com/${product.id}`}
+              image={`https://images.unsplash.com/${product.photoId}`}
               title="Image title"
             />
             <CardContent className={classes.cardContent}>

@@ -12,9 +12,10 @@ import PageCart from "components/pages/PageCart/PageCart";
 import PageOrders from "components/pages/PageOrders/PageOrders";
 import PageOrder from "components/pages/PageOrder/PageOrder";
 import PageProductImport from "components/pages/admin/PageProductImport/PageProductImport";
-
+import SwaggerUI from "swagger-ui-react"
+import "swagger-ui-react/swagger-ui.css"
 function App() {
-
+  
   return (
     <Router>
       <Switch>
@@ -22,6 +23,9 @@ function App() {
           <MainLayout>
             <Route exact path="/">
               <PageProducts/>
+            </Route>
+            <Route exact path="/swagger">
+              <SwaggerUI url="/swagger.json" />
             </Route>
             <Route exact path={["/admin/product-form/:id", '/admin/product-form']}>
               <PageProductForm/>
