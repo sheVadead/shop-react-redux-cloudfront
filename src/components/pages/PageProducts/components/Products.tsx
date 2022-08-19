@@ -37,7 +37,7 @@ export default function Products() {
   const [products, setProducts] = useState<(FullProduct)[]>([]);
   const getProducts = async () => { 
     const {data}  = await axios.get(`${API_PATHS.products}`);
-    // const sprite = await axios.get(`${API_PATHS.productsById}/Sprite`);
+
     setProducts(data)
 
  }

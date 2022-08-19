@@ -9,7 +9,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import Cart from "components/MainLayout/components/Cart";
 import {Link} from 'react-router-dom';
-
+import SignIn from '../components/SignIn'
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
@@ -31,8 +31,8 @@ const useStyles = makeStyles((theme: Theme) =>
 export default function Header() {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const [token, setToken] = React.useState(localStorage.getItem('authorization_token') || '')
   const open = Boolean(anchorEl);
-  const auth = true;
 
   const handleMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
@@ -42,6 +42,10 @@ export default function Header() {
     setAnchorEl(null);
   };
 
+  const handleLogout = () => {
+    setToken('');
+    localStorage.removeItem('authorization_token');
+  }
   return (
     <AppBar position="relative">
       <Toolbar>
@@ -51,7 +55,7 @@ export default function Header() {
         <Typography variant="h6" className={classes.title}>
           <Link className={classes.homeLink} to="/swagger">SWAGGER</Link>
         </Typography>
-        {auth && (
+        {token ? (
           <div>
             <IconButton
               aria-label="account of current user"
@@ -79,9 +83,10 @@ export default function Header() {
             >
               <MenuItem component={Link} to="/admin/orders" onClick={handleClose}>Manage orders</MenuItem>
               <MenuItem component={Link} to="/admin/products" onClick={handleClose}>Manage products</MenuItem>
+              <MenuItem  onClick={handleLogout}>Logout</MenuItem>
             </Menu>
           </div>
-        )}
+        ) : <SignIn onTokenHandler={setToken} token={token}/>}
         <Cart/>
       </Toolbar>
     </AppBar>
