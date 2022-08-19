@@ -14,7 +14,7 @@
   },
   "servers": [
     {
-      "url": "https://1bayz4m1hc.execute-api.eu-central-1.amazonaws.com/dev"
+      "url": "https://i8a5m5xcj2.execute-api.eu-central-1.amazonaws.com/dev"
     }
   ],
   "tags": [
