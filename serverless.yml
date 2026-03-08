@@ -19,7 +19,7 @@ plugins:
 
 custom:
   client:
-    bucketName: sheva-aws-bucket-v1
+    bucketName: product-aws-bucket-v1
     distributionFolder: build
   s3BucketName: ${self:custom.client.bucketName}
   # serverless-s3-cleaner:
