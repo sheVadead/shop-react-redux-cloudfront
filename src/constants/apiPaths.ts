@@ -7,6 +7,7 @@ const API_PATHS = {
   import: 'https://wupnrqqit2.execute-api.eu-central-1.amazonaws.com/dev',
   bff: 'https://.execute-api.eu-west-1.amazonaws.com/dev',
   cart: 'https://.execute-api.eu-west-1.amazonaws.com/dev',
+  token: 'https://n2vcay8ayd.execute-api.eu-central-1.amazonaws.com/dev/token'
 };
 
 export default API_PATHS;

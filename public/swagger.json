@@ -108,8 +108,7 @@
             "style": "simple",
             "explode": false,
             "schema": {
-              "type": "integer",
-              "format": "int64"
+              "type": "string"
             }
           }
         ],
@@ -189,7 +188,7 @@
       },
       "servers": [
         {
-          "url": "https://jvt21vcmc3.execute-api.eu-central-1.amazonaws.com/dev"
+          "url": "https://wupnrqqit2.execute-api.eu-central-1.amazonaws.com/dev"
         }
       ]
     }
